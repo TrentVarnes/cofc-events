@@ -19,7 +19,7 @@ a {
 }
 
 .card {
-  @apply mb-5  block   rounded-lg border border-gray-200  shadow-md;
+  @apply mb-5  block h-fit  rounded-lg border border-gray-200  shadow-md;
 }
 
 .primary-button {
@@ -36,7 +36,7 @@ textarea {
 }
 
 .dropdown-link {
-  @apply flex p-2 hover:bg-gray-200;
+  @apply flex p-2 hover:bg-gray-200 visible;
 }
 
 .alert-error {

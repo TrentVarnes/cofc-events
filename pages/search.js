@@ -26,7 +26,7 @@ const prices = [
   },
 ];
 
-const ratings = [1, 2, 3, 4, 5];
+const ratings = [1, 2];
 
 export default function Search(props) {
   const router = useRouter();
@@ -106,7 +106,7 @@ export default function Search(props) {
       <div className="grid md:grid-cols-4 md:gap-5">
         <div>
           <div className="my-3">
-            <h2>Categories</h2>
+            <h2>Sports</h2>
             <select
               className="w-full"
               value={category}
@@ -122,7 +122,7 @@ export default function Search(props) {
             </select>
           </div>
           <div className="mb-3">
-            <h2>Brands</h2>
+            <h2>Teams</h2>
             <select className="w-full" value={brand} onChange={brandHandler}>
               <option value="all">All</option>
               {brands &&
@@ -146,13 +146,13 @@ export default function Search(props) {
             </select>
           </div>
           <div className="mb-3">
-            <h2>Ratings</h2>
+            <h2>Division</h2>
             <select className="w-full" value={rating} onChange={ratingHandler}>
               <option value="all">All</option>
               {ratings &&
                 ratings.map((rating) => (
                   <option key={rating} value={rating}>
-                    {rating} star{rating > 1 && 's'} & up
+                    Division {rating}
                   </option>
                 ))}
             </select>
@@ -166,7 +166,7 @@ export default function Search(props) {
               {category !== 'all' && ' : ' + category}
               {brand !== 'all' && ' : ' + brand}
               {price !== 'all' && ' : Price ' + price}
-              {rating !== 'all' && ' : Rating ' + rating + ' & up'}
+              {rating !== 'all' && ' : Division ' + rating + ' & up'}
               &nbsp;
               {(query !== 'all' && query !== '') ||
               category !== 'all' ||

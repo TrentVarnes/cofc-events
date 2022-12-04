@@ -15,7 +15,9 @@ async function connect() {
     }
     await mongoose.disconnect();
   }
-  const db = await mongoose.connect(process.env.MONGODB_URI);
+  const db = await mongoose.connect(
+    'mongodb+srv://TrentVarnes:20145769+K@cluster0.4qmgbef.mongodb.net/ticketing?retryWrites=true&w=majority'
+  );
   console.log('new connection');
   connection.isConnected = db.connections[0].readyState;
 }

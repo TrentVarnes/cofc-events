@@ -38,7 +38,7 @@ export default function Layout({ title, children }) {
   return (
     <>
       <Head>
-        <title>{title ? title + ' - Amazona' : 'Amazona'}</title>
+        <title>{title ? title + ' - CofC Events' : 'CofC Events'}</title>
         <meta name="description" content="Ecommerce Website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -48,8 +48,8 @@ export default function Layout({ title, children }) {
       <div className="flex min-h-screen flex-col justify-between ">
         <header>
           <nav className="flex h-12 items-center px-4 justify-between shadow-md">
-            <Link href="/">
-              <a className="text-lg font-bold">amazona</a>
+            <Link legacyBehavior href="/">
+              <a className="text-lg text-black font-bold">CofCEvents</a>
             </Link>
             <form
               onSubmit={submitHandler}
@@ -70,8 +70,8 @@ export default function Layout({ title, children }) {
               </button>
             </form>
             <div>
-              <Link href="/cart">
-                <a className="p-2">
+              <Link legacyBehavior href="/cart">
+                <a className="p-2 text-black">
                   Cart
                   {cartItemsCount > 0 && (
                     <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
@@ -80,15 +80,16 @@ export default function Layout({ title, children }) {
                   )}
                 </a>
               </Link>
-
+            </div>
+            <div>
               {status === 'loading' ? (
                 'Loading'
               ) : session?.user ? (
-                <Menu as="div" className="relative inline-block">
-                  <Menu.Button className="text-blue-600">
+                <Menu as="Link" className="relative inline-block object-top">
+                  <Menu.Button className=" text-black">
                     {session.user.name}
                   </Menu.Button>
-                  <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white  shadow-lg ">
+                  <Menu.Items className="absolute rounded z-50 right-0 w-56 origin-top-right bg-white shadow-lg ">
                     <Menu.Item>
                       <DropdownLink className="dropdown-link" href="/profile">
                         Profile
@@ -114,7 +115,7 @@ export default function Layout({ title, children }) {
                     )}
                     <Menu.Item>
                       <a
-                        className="dropdown-link"
+                        className="dropdown-link p-2"
                         href="#"
                         onClick={logoutClickHandler}
                       >
@@ -125,7 +126,7 @@ export default function Layout({ title, children }) {
                 </Menu>
               ) : (
                 <Link href="/login">
-                  <a className="p-2">Login</a>
+                  <a className="p-2 text-black">Login</a>
                 </Link>
               )}
             </div>
@@ -133,7 +134,7 @@ export default function Layout({ title, children }) {
         </header>
         <main className="container m-auto mt-4 px-4">{children}</main>
         <footer className="flex h-10 justify-center items-center shadow-inner">
-          <p>Copyright © 2022 Amazona</p>
+          <p>Copyright © 2022 CofC Events</p>
         </footer>
       </div>
     </>

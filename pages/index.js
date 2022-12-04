@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import axios from 'axios';
 import { useContext } from 'react';
 import { toast } from 'react-toastify';
@@ -33,7 +34,7 @@ export default function Home({ products, featuredProducts }) {
         {featuredProducts.map((product) => (
           <div key={product._id}>
             <Link href={`/product/${product.slug}`} passHref>
-              <a className="flex">
+              <a className="flex z-1">
                 <img src={product.banner} alt={product.name} />
               </a>
             </Link>

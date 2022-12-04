@@ -33,15 +33,15 @@ export default function ProductScreen(props) {
   return (
     <Layout title={product.name}>
       <div className="py-2">
-        <Link href="/">back to products</Link>
+        <Link href="/">back to Events</Link>
       </div>
       <div className="grid md:grid-cols-4 md:gap-3">
         <div className="md:col-span-2">
           <Image
             src={product.image}
             alt={product.name}
+            height={348}
             width={640}
-            height={640}
             layout="responsive"
           ></Image>
         </div>
@@ -50,11 +50,9 @@ export default function ProductScreen(props) {
             <li>
               <h1 className="text-lg">{product.name}</h1>
             </li>
-            <li>Category: {product.category}</li>
-            <li>Brand: {product.brand}</li>
-            <li>
-              {product.rating} of {product.numReviews} reviews
-            </li>
+            <li>Sport: {product.category}</li>
+            <li>Team: {product.brand}</li>
+            <li>Division: {product.rating}</li>
             <li>Description: {product.description}</li>
           </ul>
         </div>
