@@ -1,3 +1,5 @@
+// Help with checking out cart
+
 import React from 'react';
 
 export default function CheckoutWizard({ activeStep = 0 }) {
