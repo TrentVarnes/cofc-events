@@ -1,6 +1,6 @@
 # Nextjs CofC Events
 
-![CofC Events](/public/app2.jpg)
+![CofC Events](/public/app_.jpg)
 
 Build event purchasing website for CofC by Next.js
 
