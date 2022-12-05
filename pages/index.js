@@ -9,7 +9,6 @@ import db from '../utils/db';
 import { Store } from '../utils/Store';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import Link from 'next/link';
 
 export default function Home({ products, featuredProducts }) {
   const { state, dispatch } = useContext(Store);
@@ -33,11 +32,7 @@ export default function Home({ products, featuredProducts }) {
       <Carousel showThumbs={false} autoPlay>
         {featuredProducts.map((product) => (
           <div key={product._id}>
-            <Link href={`/product/${product.slug}`} passHref>
-              <a className="flex z-1">
-                <img src={product.banner} alt={product.name} />
-              </a>
-            </Link>
+            <img className="flex" src={product.banner} alt={product.name} />
           </div>
         ))}
       </Carousel>

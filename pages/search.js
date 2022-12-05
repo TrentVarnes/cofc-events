@@ -181,11 +181,10 @@ export default function Search(props) {
             <div>
               Sort by{' '}
               <select value={sort} onChange={sortHandler}>
-                <option value="featured">Featured</option>
                 <option value="lowest">Price: Low to High</option>
                 <option value="highest">Price: High to Low</option>
-                <option value="toprated">Customer Reviews</option>
-                <option value="newest">Newest Arrivals</option>
+                <option value="toprated">Division</option>
+                <option value="newest">Most Recently Added</option>
               </select>
             </div>
           </div>
