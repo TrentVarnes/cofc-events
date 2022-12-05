@@ -27,6 +27,8 @@ const data = {
       numReviews: 8,
       countInStock: 20,
       description: 'CofC Cougars vs UNC Tar Heels basketball game at TD arena',
+      isFeatured: true,
+      banner: '/images/app3.jpg',
     },
     {
       name: 'CofC vs VT Basketball',
@@ -40,7 +42,7 @@ const data = {
       countInStock: 20,
       description: 'CofC Cougars vs Virginia Tech basketball game at TD arena',
       isFeatured: true,
-      banner: '/images/app3.jpg',
+      banner: '/images/app7.jpg',
     },
     {
       name: 'CofC vs Clemson Basketball',
@@ -53,6 +55,8 @@ const data = {
       numReviews: 3,
       countInStock: 20,
       description: 'CofC Cougars vs Clemson Tigers basketball game at TD arena',
+      isFeatured: true,
+      banner: '/images/app8.jpg',
     },
     {
       name: 'CofC vs USC Basketball',
