@@ -62,7 +62,7 @@ export default function Layout({ title, children }) {
                 onChange={(e) => setQuery(e.target.value)}
                 type="text"
                 className="f-full rounded-tr-none rounded-br-none p-1 text-sm   focus:ring-0"
-                placeholder="Search products"
+                placeholder="Search for an event"
               />
               <button
                 className="rounded rounded-tl-none rounded-bl-none bg-amber-300 p-1 text-sm dark:text-black"

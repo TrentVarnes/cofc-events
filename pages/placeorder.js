@@ -67,10 +67,9 @@ export default function PlaceOrderScreen() {
       <CheckoutWizard activeStep={3} />
       <h1 className="mb-4 text-xl text-orange-100">Place Order</h1>
       {cartItems.length === 0 ? (
-        <div>
+        <div className="text-orange-100">
           Cart is empty.{' '}
           <Link href="/">
-            {' '}
             <a className="text-amber-300 hover:text-amber-400">Go Shopping!</a>
           </Link>
         </div>
