@@ -44,8 +44,8 @@ export default function LoginScreen() {
         className="mx-auto max-w-screen-md"
         onSubmit={handleSubmit(submitHandler)}
       >
-        <h1 className="mb-4 text-xl">Login</h1>
-        <div className="mb-4">
+        <h1 className="mb-4 text-xl text-orange-100">Login</h1>
+        <div className="mb-4 text-orange-100">
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -56,7 +56,7 @@ export default function LoginScreen() {
                 message: 'Please enter valid email',
               },
             })}
-            className="w-full"
+            className="w-full text-black"
             id="email"
             autoFocus
           ></input>
@@ -64,15 +64,18 @@ export default function LoginScreen() {
             <div className="text-red-500">{errors.email.message}</div>
           )}
         </div>
-        <div className="mb-4">
+        <div className="mb-4 text-orange-100">
           <label htmlFor="password">Password</label>
           <input
             type="password"
             {...register('password', {
               required: 'Please enter password',
-              minLength: { value: 6, message: 'password is more than 5 chars' },
+              minLength: {
+                value: 15,
+                message: 'password is more than 15 chars',
+              },
             })}
-            className="w-full"
+            className="w-full text-black"
             id="password"
             autoFocus
           ></input>
@@ -83,9 +86,11 @@ export default function LoginScreen() {
         <div className="mb-4 ">
           <button className="primary-button">Login</button>
         </div>
-        <div className="mb-4 ">
+        <div className="mb-4 text-orange-100">
           Don&apos;t have an account? &nbsp;
-          <Link href={`/register?redirect=${redirect || '/'}`}>Register</Link>
+          <Link href={`/register?redirect=${redirect || '/'}`}>
+            <a className="text-amber-300 hover:text-amber-400">Register</a>
+          </Link>
         </div>
       </form>
     </Layout>

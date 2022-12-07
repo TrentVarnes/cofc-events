@@ -65,10 +65,14 @@ export default function PlaceOrderScreen() {
   return (
     <Layout title="Place Order">
       <CheckoutWizard activeStep={3} />
-      <h1 className="mb-4 text-xl">Place Order</h1>
+      <h1 className="mb-4 text-xl text-orange-100">Place Order</h1>
       {cartItems.length === 0 ? (
         <div>
-          Cart is empty. <Link href="/">Go shopping</Link>
+          Cart is empty.{' '}
+          <Link href="/">
+            {' '}
+            <a className="text-amber-300 hover:text-amber-400">Go Shopping!</a>
+          </Link>
         </div>
       ) : (
         <div className="grid md:grid-cols-4 md:gap-5">
@@ -77,7 +81,9 @@ export default function PlaceOrderScreen() {
               <h2 className="mb-2 text-lg">Payment Method</h2>
               <div>{paymentMethod}</div>
               <div>
-                <Link href="/payment">Edit</Link>
+                <Link href="/payment">
+                  <button className="primary-button">Edit</button>
+                </Link>
               </div>
             </div>
             <div className="card overflow-x-auto p-5">
@@ -96,7 +102,7 @@ export default function PlaceOrderScreen() {
                     <tr key={item._id} className="border-b">
                       <td>
                         <Link href={`/product/${item.slug}`}>
-                          <a className="flex items-center">
+                          <a className="flex items-center text-black hover:text-amber-400">
                             <Image
                               src={item.image}
                               alt={item.name}
@@ -118,7 +124,9 @@ export default function PlaceOrderScreen() {
                 </tbody>
               </table>
               <div>
-                <Link href="/cart">Edit</Link>
+                <Link href="/cart">
+                  <button className="primary-button">Edit</button>
+                </Link>
               </div>
             </div>
           </div>

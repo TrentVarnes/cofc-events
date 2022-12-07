@@ -14,7 +14,7 @@ export default function ProductScreen(props) {
   const { state, dispatch } = useContext(Store);
   const router = useRouter();
   if (!product) {
-    return <Layout title="Produt Not Found">Produt Not Found</Layout>;
+    return <Layout title="Produt Not Found">Event Not Found</Layout>;
   }
 
   const addToCartHandler = async () => {
@@ -23,7 +23,7 @@ export default function ProductScreen(props) {
     const { data } = await axios.get(`/api/products/${product._id}`);
 
     if (data.countInStock < quantity) {
-      return toast.error('Sorry. Product is out of stock');
+      return toast.error('Sorry. Event is out of stock');
     }
 
     dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
@@ -32,8 +32,12 @@ export default function ProductScreen(props) {
 
   return (
     <Layout title={product.name}>
-      <div className="py-2">
-        <Link href="/">back to Events</Link>
+      <div className="py-2 text-orange-100">
+        <Link href="/">
+          <a className="text-yellow-400 hover:text-yellow-500">
+            Back To Events
+          </a>
+        </Link>
       </div>
       <div className="grid md:grid-cols-4 md:gap-3">
         <div className="md:col-span-2">
@@ -45,7 +49,7 @@ export default function ProductScreen(props) {
             layout="responsive"
           ></Image>
         </div>
-        <div>
+        <div className="div_white">
           <ul>
             <li>
               <h1 className="text-lg">{product.name}</h1>

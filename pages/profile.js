@@ -49,13 +49,13 @@ export default function ProfileScreen() {
         className="mx-auto max-w-screen-md"
         onSubmit={handleSubmit(submitHandler)}
       >
-        <h1 className="mb-4 text-xl">Update Profile</h1>
+        <h1 className="mb-4 text-xl text-orange-100">Update Profile</h1>
 
-        <div className="mb-4">
+        <div className="mb-4 text-orange-100">
           <label htmlFor="name">Name</label>
           <input
             type="text"
-            className="w-full"
+            className="w-full text-black"
             id="name"
             autoFocus
             {...register('name', {
@@ -67,11 +67,11 @@ export default function ProfileScreen() {
           )}
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 text-orange-100">
           <label htmlFor="email">Email</label>
           <input
             type="email"
-            className="w-full"
+            className="w-full text-black"
             id="email"
             {...register('email', {
               required: 'Please enter email',
@@ -86,14 +86,17 @@ export default function ProfileScreen() {
           )}
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 text-orange-100">
           <label htmlFor="password">Password</label>
           <input
-            className="w-full"
+            className="w-full text-black"
             type="password"
             id="password"
             {...register('password', {
-              minLength: { value: 6, message: 'password is more than 5 chars' },
+              minLength: {
+                value: 15,
+                message: 'password is more than 15 chars',
+              },
             })}
           />
           {errors.password && (
@@ -101,17 +104,17 @@ export default function ProfileScreen() {
           )}
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 text-orange-100">
           <label htmlFor="confirmPassword">Confirm Password</label>
           <input
-            className="w-full"
+            className="w-full text-black"
             type="password"
             id="confirmPassword"
             {...register('confirmPassword', {
               validate: (value) => value === getValues('password'),
               minLength: {
-                value: 6,
-                message: 'confirm password is more than 5 chars',
+                value: 15,
+                message: 'confirm password is more than 15 chars',
               },
             })}
           />

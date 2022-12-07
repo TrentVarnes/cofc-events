@@ -12,7 +12,7 @@ export default function CheckoutWizard({ activeStep = 0 }) {
           text-center 
        ${
          index <= activeStep
-           ? 'border-indigo-500   text-indigo-500'
+           ? 'border-amber-400   text-amber-400'
            : 'border-gray-400 text-gray-400'
        }
           

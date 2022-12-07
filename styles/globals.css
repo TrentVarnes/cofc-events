@@ -8,6 +8,11 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: maroon;
+}
+
+.div_white {
+  @apply bg-orange-100 rounded-lg;
 }
 
 a {
@@ -19,7 +24,11 @@ a {
 }
 
 .card {
-  @apply mb-5  block h-fit  rounded-lg border border-gray-200  shadow-md;
+  @apply mb-5  block h-fit  rounded-lg border border-gray-200  shadow-md bg-orange-100;
+}
+
+.bar {
+  @apply bg-orange-100;
 }
 
 .primary-button {

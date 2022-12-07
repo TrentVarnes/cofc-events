@@ -52,12 +52,12 @@ export default function LoginScreen() {
         className="mx-auto max-w-screen-md"
         onSubmit={handleSubmit(submitHandler)}
       >
-        <h1 className="mb-4 text-xl">Create Account</h1>
-        <div className="mb-4">
-          <label htmlFor="name">Name</label>
+        <h1 className="mb-4 text-xl text-orange-100">Create Account</h1>
+        <div className="mb-4 text-orange-100">
+          <label htmlFor="name text-orange-100">Name</label>
           <input
             type="text"
-            className="w-full"
+            className="w-full text-black"
             id="name"
             autoFocus
             {...register('name', {
@@ -69,7 +69,7 @@ export default function LoginScreen() {
           )}
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 text-orange-100">
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -80,14 +80,14 @@ export default function LoginScreen() {
                 message: 'Please enter valid email',
               },
             })}
-            className="w-full"
+            className="w-full text-black"
             id="email"
           ></input>
           {errors.email && (
             <div className="text-red-500">{errors.email.message}</div>
           )}
         </div>
-        <div className="mb-4">
+        <div className="mb-4 text-orange-100">
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -98,7 +98,7 @@ export default function LoginScreen() {
                 message: 'password must be 15 characters',
               },
             })}
-            className="w-full"
+            className="w-full text-black"
             id="password"
             autoFocus
           ></input>
@@ -106,10 +106,10 @@ export default function LoginScreen() {
             <div className="text-red-500 ">{errors.password.message}</div>
           )}
         </div>
-        <div className="mb-4">
+        <div className="mb-4 text-orange-100">
           <label htmlFor="confirmPassword">Confirm Password</label>
           <input
-            className="w-full"
+            className="w-full text-black"
             type="password"
             id="confirmPassword"
             {...register('confirmPassword', {
@@ -135,9 +135,11 @@ export default function LoginScreen() {
         <div className="mb-4 ">
           <button className="primary-button">Register</button>
         </div>
-        <div className="mb-4 ">
+        <div className="mb-4 text-orange-100">
           Don&apos;t have an account? &nbsp;
-          <Link href={`/register?redirect=${redirect || '/'}`}>Register</Link>
+          <Link href={`/register?redirect=${redirect || '/'}`}>
+            <a className="text-amber-300 hover:text-amber-400">Register</a>
+          </Link>
         </div>
       </form>
     </Layout>

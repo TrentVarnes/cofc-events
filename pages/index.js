@@ -20,11 +20,11 @@ export default function Home({ products, featuredProducts }) {
     const { data } = await axios.get(`/api/products/${product._id}`);
 
     if (data.countInStock < quantity) {
-      return toast.error('Sorry. Product is out of stock');
+      return toast.error('Sorry. Event is out of stock');
     }
     dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
 
-    toast.success('Product added to the cart');
+    toast.success('Event added to the cart');
   };
 
   return (
@@ -36,7 +36,8 @@ export default function Home({ products, featuredProducts }) {
           </div>
         ))}
       </Carousel>
-      <h2 className="h2 my-4">Latest Events</h2>
+      <h2 className="h2 my-4 text-orange-100">Latest Events</h2>
+
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
         {products.map((product) => (
           <ProductItem

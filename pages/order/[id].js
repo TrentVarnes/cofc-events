@@ -170,7 +170,7 @@ function OrderScreen() {
 
   return (
     <Layout title={`Order ${orderId}`}>
-      <h1 className="mb-4 text-xl">{`Order ${orderId}`}</h1>
+      <h1 className="mb-4 text-xl text-orange-100">{`Order ${orderId}`}</h1>
       {loading ? (
         <div>Loading...</div>
       ) : error ? (
@@ -204,7 +204,7 @@ function OrderScreen() {
                     <tr key={item._id} className="border-b">
                       <td>
                         <Link href={`/product/${item.slug}`}>
-                          <a className="flex items-center">
+                          <a className="flex items-center text-black hover:text-amber-400">
                             <Image
                               src={item.image}
                               alt={item.name}

@@ -10,6 +10,7 @@ import { Store } from '../utils/Store';
 import DropdownLink from './DropdownLink';
 import { useRouter } from 'next/router';
 import { SearchIcon } from '@heroicons/react/outline';
+import Image from 'next/image';
 
 export default function Layout({ title, children }) {
   const { status, data: session } = useSession();
@@ -46,19 +47,21 @@ export default function Layout({ title, children }) {
       <ToastContainer position="bottom-center" limit={1} />
 
       <div className="flex min-h-screen flex-col justify-between ">
-        <header>
+        <header className="bg-gradient-to-r from-orange-100 to-red-800">
           <nav className="flex h-12 items-center px-4 justify-between shadow-md">
             <Link legacyBehavior href="/">
-              <a className="text-lg text-black font-bold">CofCEvents</a>
+              <a>
+                <Image src="/images/cofclogo.png" height={40} width={150} />
+              </a>
             </Link>
             <form
               onSubmit={submitHandler}
-              className="mx-auto  hidden w-full justify-center md:flex"
+              className="mx-auto f-full hidden w-full justify-center md:flex"
             >
               <input
                 onChange={(e) => setQuery(e.target.value)}
                 type="text"
-                className="rounded-tr-none rounded-br-none p-1 text-sm   focus:ring-0"
+                className="f-full rounded-tr-none rounded-br-none p-1 text-sm   focus:ring-0"
                 placeholder="Search products"
               />
               <button
@@ -71,7 +74,7 @@ export default function Layout({ title, children }) {
             </form>
             <div>
               <Link legacyBehavior href="/cart">
-                <a className="p-2 text-black">
+                <a className="p-2 text-black hover:text-amber-400">
                   Cart
                   {cartItemsCount > 0 && (
                     <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
@@ -86,18 +89,21 @@ export default function Layout({ title, children }) {
                 'Loading'
               ) : session?.user ? (
                 <Menu as="Link" className="relative inline-block object-top">
-                  <Menu.Button className=" text-black">
+                  <Menu.Button className=" text-black hover:text-amber-400">
                     {session.user.name}
                   </Menu.Button>
-                  <Menu.Items className="absolute rounded z-50 right-0 w-56 origin-top-right bg-white shadow-lg ">
+                  <Menu.Items className="absolute rounded z-50 right-0 w-56 origin-top-right bg-orange-100 shadow-lg ">
                     <Menu.Item>
-                      <DropdownLink className="dropdown-link" href="/profile">
+                      <DropdownLink
+                        className="dropdown-link text-black hover:text-amber-400"
+                        href="/profile"
+                      >
                         Profile
                       </DropdownLink>
                     </Menu.Item>
                     <Menu.Item>
                       <DropdownLink
-                        className="dropdown-link"
+                        className="dropdown-link text-black hover:text-amber-400"
                         href="/order-history"
                       >
                         Order History
@@ -106,7 +112,7 @@ export default function Layout({ title, children }) {
                     {session.user.isAdmin && (
                       <Menu.Item>
                         <DropdownLink
-                          className="dropdown-link"
+                          className="dropdown-link text-black hover:text-amber-400"
                           href="/admin/dashboard"
                         >
                           Admin Dashboard
@@ -115,7 +121,7 @@ export default function Layout({ title, children }) {
                     )}
                     <Menu.Item>
                       <a
-                        className="dropdown-link p-2"
+                        className="dropdown-link text-black hover:text-amber-400 p-2"
                         href="#"
                         onClick={logoutClickHandler}
                       >
@@ -133,9 +139,11 @@ export default function Layout({ title, children }) {
           </nav>
         </header>
         <main className="container m-auto mt-4 px-4">{children}</main>
-        <footer className="flex h-10 justify-center items-center shadow-inner">
-          <p>Copyright © 2022 CofC Events</p>
-        </footer>
+        <div className="bar">
+          <footer className="flex h-10 justify-center items-center shadow-inner">
+            <p>Copyright © 2022 CofC Events</p>
+          </footer>
+        </div>
       </div>
     </>
   );
