@@ -93,9 +93,11 @@ export default function LoginScreen() {
             type="password"
             {...register('password', {
               required: 'Please enter password',
-              minLength: {
-                value: 15,
-                message: 'password must be 15 characters',
+              pattern: {
+                value:
+                  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{15,}$/i,
+                message:
+                  'password must include special character, lowercase letter, uppercase letter, number, and be 15 chars',
               },
             })}
             className="w-full text-black"
@@ -117,7 +119,7 @@ export default function LoginScreen() {
               validate: (value) => value === getValues('password'),
               minLength: {
                 value: 15,
-                message: 'confirm password is more than 15 characters',
+                message: 'confirm passwords match',
               },
             })}
           />
